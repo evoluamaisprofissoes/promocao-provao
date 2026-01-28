@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolua+ Profissões - Certificado Reconhecido pelo MEC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-bebas { font-family: 'Bebas Neue', sans-serif; }
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+      50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.8); }
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes countdown-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    .btn-cta {
+      animation: pulse-glow 2s infinite;
+    }
+    
+    .btn-cta:hover {
+      animation: shake 0.5s ease-in-out;
+    }
+    
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .countdown-box {
+      animation: countdown-pulse 1s ease-in-out infinite;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-highlight {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+    }
+    
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+    
+    .ribbon {
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: #ef4444;
+      color: white;
+      padding: 5px 40px;
+      transform: rotate(45deg);
+      font-weight: bold;
+      font-size: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+    
+    .testimonial-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .feature-icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-item:hover .feature-icon {
+      transform: scale(1.2) rotate(10deg);
+    }
+
+    .benefits-grid {
+      display: grid;
+      gap: 1rem;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-poppins">
+  <div id="app-container" class="w-full h-full overflow-auto" style="background: linear-gradient(180deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);"><!-- Urgency Bar -->
+   <div id="urgency-bar" class="w-full py-3 px-4 text-center" style="background: linear-gradient(90deg, #dc2626 0%, #ef4444 50%, #dc2626 100%);">
+    <div class="flex items-center justify-center gap-2 flex-wrap"><span class="text-white font-bold text-sm md:text-base">🔥 OFERTA ESPECIAL TERMINA EM:</span>
+     <div class="flex gap-2 countdown-box">
+      <div class="bg-black/30 px-2 py-1 rounded"><span id="hours" class="text-white font-bold">02</span> <span class="text-white/70 text-xs">h</span>
+      </div>
+      <div class="bg-black/30 px-2 py-1 rounded"><span id="minutes" class="text-white font-bold">47</span> <span class="text-white/70 text-xs">m</span>
+      </div>
+      <div class="bg-black/30 px-2 py-1 rounded"><span id="seconds" class="text-white font-bold">33</span> <span class="text-white/70 text-xs">s</span>
+      </div>
+     </div><span class="text-yellow-300 font-bold text-sm">⚡ Garanta o melhor preço!</span>
+    </div>
+   </div><!-- Hero Section -->
+   <section class="w-full px-4 py-12 md:py-20">
+    <div class="max-w-6xl mx-auto text-center">
+     <div class="inline-block bg-amber-500/20 border border-amber-500/50 rounded-full px-4 py-2 mb-6"><span class="text-amber-400 font-semibold text-sm">✅ +1.000 alunos formados | Reconhecido pelo MEC</span>
+     </div>
+     <h1 id="main-headline" class="font-bebas text-5xl md:text-7xl lg:text-8xl text-white leading-none mb-4">CONCLUA SEUS ESTUDOS <span class="gradient-text">EM DIAS</span>,<br>
+       NÃO EM ANOS!</h1>
+     <p id="sub-headline" class="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-8">Certificado de Ensino Médio e Fundamental <strong class="text-amber-400">100% digital e reconhecido pelo MEC</strong>. Acesso imediato após pagamento. Certificado pronto em 90-120 dias. <strong class="text-white">Resolva em dias o que você deixou pendente há anos!</strong></p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"><a href="#produtos" class="btn-cta bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-lg px-8 py-4 rounded-lg transition-all cursor-pointer flex items-center gap-2"> <span id="hero-cta">QUERO MEU CERTIFICADO AGORA</span>
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+       </svg></a> <span class="text-gray-400 text-sm">🔒 Processo 100% seguro e legal</span>
+     </div>
+     <div class="flex flex-wrap justify-center gap-6 text-gray-400 text-sm"><span class="flex items-center gap-2">✓ Reconhecido pelo MEC</span> <span class="flex items-center gap-2">✓ Prova 100% digital</span> <span class="flex items-center gap-2">✓ Certificado em 90-120 dias</span>
+     </div>
+    </div>
+   </section><!-- Social Proof Banner -->
+   <div class="w-full bg-white/5 backdrop-blur py-6 border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-4">
+     <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+      <div class="text-center">
+       <div class="text-3xl md:text-4xl font-bold text-amber-400">
+        +1.000
+       </div>
+       <div class="text-gray-400 text-sm">
+        Alunos Formados
+       </div>
+      </div>
+      <div class="text-center">
+       <div class="text-3xl md:text-4xl font-bold text-amber-400">
+        100%
+       </div>
+       <div class="text-gray-400 text-sm">
+        Reconhecido MEC
+       </div>
+      </div>
+      <div class="text-center">
+       <div class="text-3xl md:text-4xl font-bold text-amber-400">
+        90-120
+       </div>
+       <div class="text-gray-400 text-sm">
+        Dias p/ Certificado
+       </div>
+      </div>
+      <div class="text-center">
+       <div class="text-3xl md:text-4xl font-bold text-amber-400">
+        20+
+       </div>
+       <div class="text-gray-400 text-sm">
+        Anos Resolvidos
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- Problem Section -->
+   <section class="w-full px-4 py-16">
+    <div class="max-w-5xl mx-auto">
+     <h2 class="font-bebas text-4xl md:text-5xl text-white text-center mb-12">HÁ QUANTO TEMPO VOCÊ ADIA ISSO? 😰</h2>
+     <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 flex items-start gap-4"><span class="text-3xl">⏰</span>
+       <div>
+        <h3 class="text-white font-bold mb-2">Há anos sem concluir os estudos</h3>
+        <p class="text-gray-400 text-sm">Perdeu oportunidades de emprego, concursos e cursos por não ter o certificado</p>
+       </div>
+      </div>
+      <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 flex items-start gap-4"><span class="text-3xl">🚫</span>
+       <div>
+        <h3 class="text-white font-bold mb-2">Portas fechadas constantemente</h3>
+        <p class="text-gray-400 text-sm">Não consegue fazer faculdade, cursos técnicos ou passar em concursos</p>
+       </div>
+      </div>
+      <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 flex items-start gap-4"><span class="text-3xl">💼</span>
+       <div>
+        <h3 class="text-white font-bold mb-2">Estagnado no trabalho</h3>
+        <p class="text-gray-400 text-sm">Vê promoções e melhores cargos passarem longe por falta de escolaridade</p>
+       </div>
+      </div>
+      <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 flex items-start gap-4"><span class="text-3xl">😔</span>
+       <div>
+        <h3 class="text-white font-bold mb-2">Vergonha e frustração</h3>
+        <p class="text-gray-400 text-sm">Sente que deixou isso pendente por tempo demais e não sabe por onde começar</p>
+       </div>
+      </div>
+     </div>
+     <div class="text-center mt-10">
+      <div class="inline-block bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/50 rounded-xl p-6">
+       <p class="text-amber-400 font-bold text-xl">✅ TEMOS ALUNOS QUE FICARAM 20+ ANOS COM ISSO TRAVADO E RESOLVERAM EM DIAS!</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Benefits Section -->
+   <section class="w-full px-4 py-16 bg-gradient-to-b from-amber-500/5 to-transparent">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="font-bebas text-4xl md:text-5xl text-white text-center mb-4">O QUE VOCÊ <span class="gradient-text">PODE FAZER</span> COM SEU CERTIFICADO?</h2>
+     <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">Um mundo de oportunidades se abre quando você tem seu certificado em mãos</p>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="feature-item bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-amber-500/50 transition-all">
+       <div class="feature-icon w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mb-4"><span class="text-3xl">🎓</span>
+       </div>
+       <h3 class="text-white font-bold text-lg mb-2">Ingressar em Faculdades</h3>
+       <p class="text-gray-400 text-sm">Realize o sonho do ensino superior. Faça graduação, pós-graduação e muito mais.</p>
+      </div>
+      <div class="feature-item bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-amber-500/50 transition-all">
+       <div class="feature-icon w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mb-4"><span class="text-3xl">📚</span>
+       </div>
+       <h3 class="text-white font-bold text-lg mb-2">Cursos Técnicos</h3>
+       <p class="text-gray-400 text-sm">Qualifique-se com cursos técnicos do SENAI, SENAC e outras instituições reconhecidas.</p>
+      </div>
+      <div class="feature-item bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-amber-500/50 transition-all">
+       <div class="feature-icon w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mb-4"><span class="text-3xl">🏛️</span>
+       </div>
+       <h3 class="text-white font-bold text-lg mb-2">Concursos Públicos</h3>
+       <p class="text-gray-400 text-sm">Participe de concursos e consiga estabilidade financeira com emprego público.</p>
+      </div>
+      <div class="feature-item bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-amber-500/50 transition-all">
+       <div class="feature-icon w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mb-4"><span class="text-3xl">💼</span>
+       </div>
+       <h3 class="text-white font-bold text-lg mb-2">Melhores Empregos</h3>
+       <p class="text-gray-400 text-sm">Candidate-se a vagas melhores e conquiste o salário que você merece.</p>
+      </div>
+      <div class="feature-item bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-amber-500/50 transition-all">
+       <div class="feature-icon w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mb-4"><span class="text-3xl">📈</span>
+       </div>
+       <h3 class="text-white font-bold text-lg mb-2">Promoções e Aumentos</h3>
+       <p class="text-gray-400 text-sm">Desbloqueie promoções internas e alcance cargos de liderança na sua empresa.</p>
+      </div>
+      <div class="feature-item bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-amber-500/50 transition-all">
+       <div class="feature-icon w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mb-4"><span class="text-3xl">✨</span>
+       </div>
+       <h3 class="text-white font-bold text-lg mb-2">Realização Pessoal</h3>
+       <p class="text-gray-400 text-sm">Conquiste algo que sempre quis e prove para si mesmo que é capaz!</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- How it Works -->
+   <section class="w-full px-4 py-16">
+    <div class="max-w-5xl mx-auto">
+     <h2 class="font-bebas text-4xl md:text-5xl text-white text-center mb-4">COMO <span class="gradient-text">FUNCIONA?</span></h2>
+     <p class="text-gray-400 text-center mb-12">Simples, rápido e 100% digital. Veja como é fácil:</p>
+     <div class="grid md:grid-cols-4 gap-6">
+      <div class="text-center">
+       <div class="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-amber-500"><span class="text-3xl font-bold text-amber-400">1</span>
+       </div>
+       <h3 class="text-white font-bold mb-2">Escolha seu Certificado</h3>
+       <p class="text-gray-400 text-sm">Selecione Ensino Fundamental, Médio ou ambos</p>
+      </div>
+      <div class="text-center">
+       <div class="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-amber-500"><span class="text-3xl font-bold text-amber-400">2</span>
+       </div>
+       <h3 class="text-white font-bold mb-2">Pagamento Confirmado</h3>
+       <p class="text-gray-400 text-sm">Pague de forma segura e receba acesso imediato</p>
+      </div>
+      <div class="text-center">
+       <div class="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-amber-500"><span class="text-3xl font-bold text-amber-400">3</span>
+       </div>
+       <h3 class="text-white font-bold mb-2">Faça a Prova Digital</h3>
+       <p class="text-gray-400 text-sm">Prova 100% online, no seu tempo e ritmo</p>
+      </div>
+      <div class="text-center">
+       <div class="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-amber-500"><span class="text-3xl font-bold text-amber-400">4</span>
+       </div>
+       <h3 class="text-white font-bold mb-2">Receba o Certificado</h3>
+       <p class="text-gray-400 text-sm">Em 90-120 dias seu certificado está pronto!</p>
+      </div>
+     </div>
+     <div class="mt-12 text-center">
+      <div class="inline-block bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/50 rounded-xl p-6">
+       <p class="text-green-400 font-bold text-lg mb-2">🚀 <strong>PROCESSO PRÁTICO E RÁPIDO!</strong></p>
+       <p class="text-gray-300 text-sm">Sem burocracia, sem complicação. Do pagamento ao certificado de forma simples.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Products Section -->
+   <section id="produtos" class="w-full px-4 py-16 bg-gradient-to-b from-white/5 to-transparent">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="font-bebas text-4xl md:text-5xl text-white text-center mb-4">ESCOLHA SEU <span class="gradient-text">CERTIFICADO</span></h2>
+     <p class="text-gray-400 text-center mb-12">Todos reconhecidos pelo MEC e válidos em todo o Brasil</p>
+     <div class="grid md:grid-cols-3 gap-6 lg:gap-8"><!-- Produto 1: Ensino Fundamental -->
+      <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl border border-slate-700 overflow-hidden hover:border-blue-500/50 transition-all hover:transform hover:scale-105">
+       <div class="bg-blue-500/20 py-4 px-6 text-center"><span class="text-blue-400 font-bold uppercase tracking-wider text-sm">Ensino Fundamental</span>
+       </div>
+       <div class="p-6">
+        <div class="text-center mb-6"><span class="text-4xl">📘</span>
+         <h3 class="font-bebas text-3xl text-white mt-4">CERTIFICADO FUNDAMENTAL</h3>
+         <p class="text-gray-400 text-sm mt-2">Certificado de conclusão do Ensino Fundamental reconhecido pelo MEC</p>
+        </div>
+        <ul class="space-y-3 mb-6">
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Reconhecido pelo MEC</li>
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Prova 100% digital</li>
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Acesso imediato</li>
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Certificado em 90-120 dias</li>
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Válido em todo Brasil</li>
+        </ul>
+        <div class="text-center mb-6">
+         <div class="text-gray-500 text-sm line-through">
+          De R$ 1.687,50
+         </div>
+         <div class="flex items-center justify-center gap-2"><span class="text-white text-4xl font-bold" id="price-fundamental">R$ 1.350</span> <span class="text-gray-400">,00</span>
+         </div>
+         <div class="text-green-400 text-sm font-semibold mb-2">
+          12x de R$ 112,50 no cartão
+         </div>
+         <div class="text-amber-400 text-xs font-semibold">
+          💰 20% OFF no PIX/Boleto: R$ 1.080,00
+         </div>
+        </div><button onclick="handlePurchase('fundamental')" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2"> <span class="cta-btn-text">GARANTIR AGORA</span>
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+         </svg></button>
+       </div>
+      </div><!-- Produto 2: COMBO (Destaque) -->
+      <div class="card-highlight bg-gradient-to-b from-amber-900/50 to-slate-900 rounded-2xl border-2 border-amber-500 overflow-hidden transform scale-105 shadow-2xl shadow-amber-500/20 relative">
+       <div class="ribbon">
+        MAIS VENDIDO
+       </div>
+       <div class="bg-amber-500 py-4 px-6 text-center"><span class="text-gray-900 font-bold uppercase tracking-wider text-sm">⭐ COMBO COMPLETO ⭐</span>
+       </div>
+       <div class="p-6">
+        <div class="text-center mb-6"><span class="text-5xl float-animation inline-block">🏆</span>
+         <h3 class="font-bebas text-3xl text-white mt-4">COMBO CERTIFICAÇÃO</h3>
+         <p class="text-gray-300 text-sm mt-2 font-semibold">Fundamental + Médio juntos!</p>
+        </div>
+        <ul class="space-y-3 mb-6">
+         <li class="flex items-center gap-3 text-gray-200 text-sm"><span class="text-amber-400">✓</span> <strong>AMBOS</strong> os certificados</li>
+         <li class="flex items-center gap-3 text-gray-200 text-sm"><span class="text-amber-400">✓</span> Reconhecidos pelo MEC</li>
+         <li class="flex items-center gap-3 text-gray-200 text-sm"><span class="text-amber-400">✓</span> 2 provas digitais completas</li>
+         <li class="flex items-center gap-3 text-gray-200 text-sm"><span class="text-amber-400">✓</span> Acesso imediato aos dois</li>
+         <li class="flex items-center gap-3 text-gray-200 text-sm"><span class="text-amber-400">✓</span> Certificados em 90-120 dias</li>
+         <li class="flex items-center gap-3 text-yellow-400 text-sm font-semibold"><span>🎁</span> ECONOMIZE R$ 37,00</li>
+        </ul>
+        <div class="text-center mb-6">
+         <div class="text-gray-400 text-sm line-through">
+          De R$ 2.700,00
+         </div>
+         <div class="flex items-center justify-center gap-2"><span class="text-white text-5xl font-bold" id="price-combo">R$ 1.920</span> <span class="text-gray-300">,00</span>
+         </div>
+         <div class="text-green-400 text-sm font-semibold mb-2">
+          12x de R$ 160,00 no cartão
+         </div>
+         <div class="text-amber-400 text-xs font-semibold">
+          💰 20% OFF no PIX/Boleto: R$ 1.536,00
+         </div>
+        </div><button onclick="handlePurchase('combo')" class="btn-cta w-full bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2 text-lg"> <span class="cta-btn-text">QUERO O COMBO</span>
+         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+         </svg></button>
+        <p class="text-center text-amber-400 text-xs mt-3 font-semibold">🔥 43 pessoas compraram nas últimas 24h</p>
+       </div>
+      </div><!-- Produto 3: Ensino Médio -->
+      <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl border border-slate-700 overflow-hidden hover:border-purple-500/50 transition-all hover:transform hover:scale-105">
+       <div class="bg-purple-500/20 py-4 px-6 text-center"><span class="text-purple-400 font-bold uppercase tracking-wider text-sm">Ensino Médio</span>
+       </div>
+       <div class="p-6">
+        <div class="text-center mb-6"><span class="text-4xl">📗</span>
+         <h3 class="font-bebas text-3xl text-white mt-4">CERTIFICADO MÉDIO</h3>
+         <p class="text-gray-400 text-sm mt-2">Certificado de conclusão do Ensino Médio reconhecido pelo MEC</p>
+        </div>
+        <ul class="space-y-3 mb-6">
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Reconhecido pelo MEC</li>
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Prova 100% digital</li>
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Acesso imediato</li>
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Certificado em 90-120 dias</li>
+         <li class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-green-400">✓</span> Válido em todo Brasil</li>
+        </ul>
+        <div class="text-center mb-6">
+         <div class="text-gray-500 text-sm line-through">
+          De R$ 1.687,50
+         </div>
+         <div class="flex items-center justify-center gap-2"><span class="text-white text-4xl font-bold" id="price-medio">R$ 1.350</span> <span class="text-gray-400">,00</span>
+         </div>
+         <div class="text-green-400 text-sm font-semibold mb-2">
+          12x de R$ 112,50 no cartão
+         </div>
+         <div class="text-amber-400 text-xs font-semibold">
+          💰 20% OFF no PIX/Boleto: R$ 1.080,00
+         </div>
+        </div><button onclick="handlePurchase('medio')" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2"> <span class="cta-btn-text">GARANTIR AGORA</span>
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+         </svg></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Testimonials -->
+   <section class="w-full px-4 py-16 bg-white/5">
+    <div class="max-w-5xl mx-auto">
+     <h2 class="font-bebas text-4xl md:text-5xl text-white text-center mb-4">HISTÓRIAS DE <span class="gradient-text">TRANSFORMAÇÃO</span></h2>
+     <p class="text-gray-400 text-center mb-12">Veja quem resolveu isso e mudou de vida</p><!-- Video Testimonials -->
+     <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div class="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+       <div class="mb-4">
+        <h3 class="text-white font-bold text-lg mb-2">📹 Depoimento Real - Instagram</h3>
+        <p class="text-gray-400 text-sm">Veja o que nossos alunos têm a dizer sobre a transformação</p>
+       </div><button onclick="openVideo('https://www.youtube.com/embed/5kxU8MVDtqg')" class="block w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-4 rounded-lg transition-all text-center">▶️ Assistir Depoimento 1</button>
+      </div>
+      <div class="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+       <div class="mb-4">
+        <h3 class="text-white font-bold text-lg mb-2">📹 Depoimento Real - Instagram</h3>
+        <p class="text-gray-400 text-sm">Histórias reais de pessoas que conquistaram seus certificados</p>
+       </div><button onclick="openVideo('https://www.youtube.com/embed/Hy42KUIMFrQ')" class="block w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-4 rounded-lg transition-all text-center">▶️ Assistir Depoimento 2</button>
+      </div>
+     </div>
+     <div class="grid md:grid-cols-3 gap-6">
+      <div class="testimonial-card bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+         CR
+        </div>
+        <div>
+         <div class="text-white font-semibold">
+          Carla Regina
+         </div>
+         <div class="text-gray-400 text-sm">
+          Formada em 2024
+         </div>
+        </div>
+       </div>
+       <div class="flex text-yellow-400 mb-3">
+        ⭐⭐⭐⭐⭐
+       </div>
+       <p class="text-gray-300 text-sm">"Fiquei 15 anos sem concluir o ensino médio. Em 4 meses estava com meu certificado em mãos e consegui fazer o concurso que sempre quis!"</p>
+      </div>
+      <div class="testimonial-card bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold">
+         MS
+        </div>
+        <div>
+         <div class="text-white font-semibold">
+          Marcos Silva
+         </div>
+         <div class="text-gray-400 text-sm">
+          Formado em 2024
+         </div>
+        </div>
+       </div>
+       <div class="flex text-yellow-400 mb-3">
+        ⭐⭐⭐⭐⭐
+       </div>
+       <p class="text-gray-300 text-sm">"Processo super simples e rápido! Finalmente consegui a promoção no trabalho que exigia ensino médio completo. Valeu cada centavo!"</p>
+      </div>
+      <div class="testimonial-card bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold">
+         JA
+        </div>
+        <div>
+         <div class="text-white font-semibold">
+          Juliana Alves
+         </div>
+         <div class="text-gray-400 text-sm">
+          Formada em 2024
+         </div>
+        </div>
+       </div>
+       <div class="flex text-yellow-400 mb-3">
+        ⭐⭐⭐⭐⭐
+       </div>
+       <p class="text-gray-300 text-sm">"Estava há mais de 20 anos com isso pendente. Resolvi de vez e hoje estou cursando a faculdade dos meus sonhos. Recomendo muito!"</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- FAQ Section -->
+   <section class="w-full px-4 py-16">
+    <div class="max-w-3xl mx-auto">
+     <h2 class="font-bebas text-4xl md:text-5xl text-white text-center mb-12">PERGUNTAS FREQUENTES</h2>
+     <div class="space-y-4" id="faq-container">
+      <div class="faq-item bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left"> <span class="text-white font-semibold">O certificado é reconhecido pelo MEC?</span> <span class="faq-icon text-amber-400 transition-transform">+</span> </button>
+       <div class="faq-content hidden px-6 pb-4">
+        <p class="text-gray-400 text-sm">Sim! Todos os nossos certificados são 100% reconhecidos pelo MEC e válidos em todo o território nacional.</p>
+       </div>
+      </div>
+      <div class="faq-item bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left"> <span class="text-white font-semibold">Quando recebo acesso à prova?</span> <span class="faq-icon text-amber-400 transition-transform">+</span> </button>
+       <div class="faq-content hidden px-6 pb-4">
+        <p class="text-gray-400 text-sm">Imediatamente após a confirmação do pagamento! Você recebe por email o acesso completo para fazer sua prova.</p>
+       </div>
+      </div>
+      <div class="faq-item bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left"> <span class="text-white font-semibold">Em quanto tempo recebo o certificado?</span> <span class="faq-icon text-amber-400 transition-transform">+</span> </button>
+       <div class="faq-content hidden px-6 pb-4">
+        <p class="text-gray-400 text-sm">Após fazer a prova, seu certificado fica pronto entre 90 e 120 dias. É o tempo de processamento oficial.</p>
+       </div>
+      </div>
+      <div class="faq-item bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left"> <span class="text-white font-semibold">Posso usar o certificado para concursos e faculdades?</span> <span class="faq-icon text-amber-400 transition-transform">+</span> </button>
+       <div class="faq-content hidden px-6 pb-4">
+        <p class="text-gray-400 text-sm">Com certeza! O certificado é válido para concursos públicos, ingresso em faculdades, cursos técnicos, promoções no trabalho e qualquer situação que exija comprovação de escolaridade.</p>
+       </div>
+      </div>
+      <div class="faq-item bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left"> <span class="text-white font-semibold">A prova é difícil?</span> <span class="faq-icon text-amber-400 transition-transform">+</span> </button>
+       <div class="faq-content hidden px-6 pb-4">
+        <p class="text-gray-400 text-sm">A prova é totalmente acessível e pensada para quem está retomando os estudos. Ela avalia conhecimentos básicos e você pode fazer no seu ritmo, sem pressão.</p>
+       </div>
+      </div>
+      <div class="faq-item bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left"> <span class="text-white font-semibold">Como funciona o pagamento?</span> <span class="faq-icon text-amber-400 transition-transform">+</span> </button>
+       <div class="faq-content hidden px-6 pb-4">
+        <p class="text-gray-400 text-sm">Aceitamos cartão de crédito (em até 6x sem juros), PIX e boleto bancário. O processo é 100% seguro e seus dados ficam protegidos.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Final CTA -->
+   <section class="w-full px-4 py-16 bg-gradient-to-t from-amber-500/10 to-transparent">
+    <div class="max-w-3xl mx-auto text-center">
+     <h2 class="font-bebas text-4xl md:text-6xl text-white mb-4">NÃO ADIE MAIS!</h2>
+     <p class="text-gray-300 text-lg mb-8">Você já esperou tempo demais. Hoje é o dia de resolver isso de uma vez por todas.<br><strong class="text-amber-400">Junte-se aos mais de 1.000 alunos que já conquistaram seus certificados!</strong></p><a href="#produtos" class="btn-cta inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-xl px-10 py-5 rounded-xl transition-all"> <span id="final-cta">QUERO MEU CERTIFICADO</span>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg></a>
+     <div class="flex flex-wrap justify-center gap-6 mt-8 text-gray-400 text-sm"><span>🔒 Pagamento seguro</span> <span>⚡ Acesso imediato</span> <span>✅ Reconhecido MEC</span>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   
+<!-- Pagamentos -->
+<section class="py-12 bg-white" id="pagamentos">
+  <div class="container mx-auto px-4 max-w-5xl">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold text-gray-900">Escolha a forma de pagamento</h2>
+      <p class="text-gray-600 mt-2">Cartão em até 12x ou boleto à vista com <span class="font-bold text-green-600">20% de desconto</span>.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-gray-200 p-6 shadow-sm">
+        <h3 class="text-xl font-extrabold text-gray-900">Provão Ensino Fundamental</h3>
+        <p class="text-gray-600 mt-1">Cartão em até 12x</p>
+        <a href="https://www.asaas.com/c/nh3rav7wvu34jzdf" target="_blank" rel="noopener"
+           class="mt-5 block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold py-3 rounded-xl hover:opacity-90 transition">
+          Pagar no cartão (12x)
+        </a>
+        <a href="https://www.asaas.com/c/nm8ydahriexvdb8q" target="_blank" rel="noopener"
+           class="mt-3 block w-full text-center bg-green-600 text-white font-bold py-3 rounded-xl hover:bg-green-700 transition">
+          Boleto à vista (-20%)
+        </a>
+      </div>
+
+      <div class="rounded-2xl border border-gray-200 p-6 shadow-sm">
+        <h3 class="text-xl font-extrabold text-gray-900">Provão Ensino Médio</h3>
+        <p class="text-gray-600 mt-1">Cartão em até 12x</p>
+        <a href="https://www.asaas.com/c/9yayyljmlfmiv2qr" target="_blank" rel="noopener"
+           class="mt-5 block w-full text-center bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold py-3 rounded-xl hover:opacity-90 transition">
+          Pagar no cartão (12x)
+        </a>
+        <a href="https://www.asaas.com/c/nm8ydahriexvdb8q" target="_blank" rel="noopener"
+           class="mt-3 block w-full text-center bg-green-600 text-white font-bold py-3 rounded-xl hover:bg-green-700 transition">
+          Boleto à vista (-20%)
+        </a>
+      </div>
+
+      <div class="rounded-2xl border border-gray-200 p-6 shadow-sm">
+        <h3 class="text-xl font-extrabold text-gray-900">Fundamental + Médio</h3>
+        <p class="text-gray-600 mt-1">Combo</p>
+        <a href="https://www.asaas.com/c/6qucihqalgjsj32u" target="_blank" rel="noopener"
+           class="mt-5 block w-full text-center bg-gradient-to-r from-orange-500 to-amber-400 text-white font-bold py-3 rounded-xl hover:opacity-90 transition">
+          Combo no cartão (12x)
+        </a>
+        <a href="https://www.asaas.com/c/8iv69st4315tp81g" target="_blank" rel="noopener"
+           class="mt-3 block w-full text-center bg-green-600 text-white font-bold py-3 rounded-xl hover:bg-green-700 transition">
+          Combo no boleto (-20%)
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center">
+      <p class="text-gray-600">Prefere falar direto comigo no WhatsApp?</p>
+      <a href="https://wa.me/5565996834279?text=Olá%20Tech!%20Quero%20tirar%20dúvidas%20sobre%20o%20Provão%20(Ensino%20Fundamental%20e%2Fou%20Ensino%20Médio)." target="_blank" rel="noopener"
+         class="inline-flex items-center justify-center mt-3 px-6 py-3 rounded-xl bg-green-600 text-white font-extrabold hover:bg-green-700 transition">
+        💬 Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="w-full px-4 py-12 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-3 gap-8 mb-8"><!-- Company Info -->
+      <div>
+       <h3 class="text-white font-bold text-lg mb-4">Evolua+ Profissões</h3>
+       <p class="text-gray-400 text-sm mb-2" id="footer-cnpj">CNPJ: 44.456.212/0001-53</p>
+       <p class="text-gray-400 text-sm">Certificados reconhecidos pelo MEC</p>
+      </div><!-- Address -->
+      <div>
+       <h3 class="text-white font-bold text-lg mb-4">📍 Endereço</h3>
+       <p class="text-gray-400 text-sm" id="footer-address">Rua Simão Rodrigues Grela, 237<br>
+         Bairro Santa Luzia<br>
+         Mirassol D'Oeste - MT</p>
+      </div><!-- Contact -->
+      <div>
+       <h3 class="text-white font-bold text-lg mb-4">📱 Contato</h3><a href="https://wa.me/5565996834279" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-lg transition-all mb-3">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg> WhatsApp </a> <a href="https://instagram.com/evoluamaisprofissoesoficial" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold px-4 py-2 rounded-lg transition-all">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg> Instagram </a>
+      </div>
+     </div>
+     <div class="border-t border-white/10 pt-6 text-center">
+      <p class="text-gray-500 text-sm mb-3">© 2024 Evolua+ Profissões - Todos os direitos reservados</p>
+      <div class="flex justify-center gap-6 text-gray-500 text-xs"><span>Termos de Uso</span> <span>Política de Privacidade</span> <span>Contato</span>
+      </div>
+     </div>
+    </div>
+   </footer><!-- Purchase Success Modal -->
+   <div id="purchase-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+    <div class="bg-slate-800 rounded-2xl p-8 max-w-md w-full text-center border border-amber-500/30">
+     <div class="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-6"><span class="text-5xl">🎉</span>
+     </div>
+     <h3 class="font-bebas text-3xl text-white mb-2">EXCELENTE ESCOLHA!</h3>
+     <p class="text-gray-300 mb-6">Você está a um passo de conquistar seu certificado reconhecido pelo MEC. Clique no botão abaixo para finalizar sua matrícula com segurança.</p>
+     <p class="text-sm text-gray-400 mb-6" id="modal-product-info"></p><button onclick="closeModal()" class="w-full bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-4 rounded-lg transition-all mb-3"> FINALIZAR MATRÍCULA </button> <button onclick="closeModal()" class="text-gray-400 text-sm hover:text-white transition-colors"> Voltar para a página </button>
+    </div>
+   </div>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      main_headline: 'CONCLUA SEUS ESTUDOS EM DIAS, NÃO EM ANOS!',
+      sub_headline: 'Certificado de Ensino Médio e Fundamental 100% digital e reconhecido pelo MEC. Acesso imediato após pagamento. Certificado pronto em 90-120 dias. Resolva em dias o que você deixou pendente há anos!',
+      price_fundamental: 'R$ 1.350',
+      price_medio: 'R$ 1.350',
+      price_combo: 'R$ 1.920',
+      cta_text: 'QUERO MEU CERTIFICADO AGORA',
+      video1_url: 'https://www.instagram.com/p/DF88vfHPuuH/',
+      video2_url: 'https://www.instagram.com/reel/DMwIV9yM6UJ/',
+      footer_cnpj: 'CNPJ: 44.456.212/0001-53',
+      footer_address: 'Rua Simão Rodrigues Grela, 237<br>Bairro Santa Luzia<br>Mirassol D\'Oeste - MT',
+      background_color: '#1e1b4b',
+      accent_color: '#f59e0b',
+      text_color: '#ffffff',
+      secondary_color: '#94a3b8',
+      highlight_color: '#fbbf24',
+      font_family: 'Poppins',
+      font_size: 16
+    };
+
+    let config = { ...defaultConfig };
+
+    // Countdown Timer
+    function startCountdown() {
+      let totalSeconds = 2 * 3600 + 47 * 60 + 33;
+      
+      setInterval(() => {
+        totalSeconds--;
+        if (totalSeconds < 0) totalSeconds = 3 * 3600;
+        
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      }, 1000);
+    }
+
+    // FAQ Toggle
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+      
+      content.classList.toggle('hidden');
+      icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+    }
+
+    // Purchase Handler
+    function handlePurchase(product) {
+      const modal = document.getElementById('purchase-modal');
+      const productInfo = document.getElementById('modal-product-info');
+      
+      const products = {
+        fundamental: 'Certificado Ensino Fundamental - R$ 1.350,00 (12x R$ 112,50)',
+        medio: 'Certificado Ensino Médio - R$ 1.350,00 (12x R$ 112,50)',
+        combo: 'Combo Completo (Fundamental + Médio) - R$ 1.920,00 (12x R$ 160,00)'
+      };
+      
+      productInfo.textContent = products[product];
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('purchase-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Element SDK Integration
+    async function onConfigChange(newConfig) {
+      config = { ...defaultConfig, ...newConfig };
+      
+      // Update headlines
+      const headlineEl = document.getElementById('main-headline');
+      if (headlineEl && config.main_headline) {
+        const parts = config.main_headline.split(/EM DIAS|CERTIFICADO/i);
+        if (config.main_headline.includes('EM DIAS')) {
+          headlineEl.innerHTML = config.main_headline.replace(/EM DIAS/i, '<span class="gradient-text">EM DIAS</span>');
+        } else if (config.main_headline.includes('CERTIFICADO')) {
+          headlineEl.innerHTML = config.main_headline.replace(/CERTIFICADO/i, '<span class="gradient-text">CERTIFICADO</span>');
+        } else {
+          headlineEl.textContent = config.main_headline;
+        }
+      }
+      
+      const subHeadlineEl = document.getElementById('sub-headline');
+      if (subHeadlineEl) {
+        const subText = config.sub_headline || defaultConfig.sub_headline;
+        subHeadlineEl.innerHTML = subText
+          .replace('100% digital e reconhecido pelo MEC', '<strong class="text-amber-400">100% digital e reconhecido pelo MEC</strong>')
+          .replace('Resolva em dias o que você deixou pendente há anos!', '<strong class="text-white">Resolva em dias o que você deixou pendente há anos!</strong>');
+      }
+      
+      // Update prices
+      const priceFundamental = document.getElementById('price-fundamental');
+      if (priceFundamental) priceFundamental.textContent = config.price_fundamental || defaultConfig.price_fundamental;
+      
+      const priceMedio = document.getElementById('price-medio');
+      if (priceMedio) priceMedio.textContent = config.price_medio || defaultConfig.price_medio;
+      
+      const priceCombo = document.getElementById('price-combo');
+      if (priceCombo) priceCombo.textContent = config.price_combo || defaultConfig.price_combo;
+      
+      // Update CTA buttons
+      const ctaText = config.cta_text || defaultConfig.cta_text;
+      document.querySelectorAll('.cta-btn-text').forEach(el => {
+        el.textContent = ctaText;
+      });
+      
+      const heroCta = document.getElementById('hero-cta');
+      if (heroCta) heroCta.textContent = ctaText;
+      
+      const finalCta = document.getElementById('final-cta');
+      if (finalCta) finalCta.textContent = ctaText;
+      
+      // Update video links
+      const video1Link = document.getElementById('video1-link');
+      if (video1Link && config.video1_url) {
+        video1Link.href = config.video1_url;
+      }
+      
+      const video2Link = document.getElementById('video2-link');
+      if (video2Link && config.video2_url) {
+        video2Link.href = config.video2_url;
+      }
+      
+      // Update footer
+      const footerCnpj = document.getElementById('footer-cnpj');
+      if (footerCnpj && config.footer_cnpj) {
+        footerCnpj.textContent = config.footer_cnpj;
+      }
+      
+      const footerAddress = document.getElementById('footer-address');
+      if (footerAddress && config.footer_address) {
+        footerAddress.innerHTML = config.footer_address;
+      }
+      
+      // Update colors
+      const appContainer = document.getElementById('app-container');
+      if (appContainer && config.background_color) {
+        appContainer.style.background = `linear-gradient(180deg, ${config.background_color} 0%, #312e81 50%, ${config.background_color} 100%)`;
+      }
+      
+      // Update fonts
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      document.body.style.fontFamily = `${fontFamily}, Poppins, sans-serif`;
+      
+      const baseSize = config.font_size || defaultConfig.font_size;
+      document.body.style.fontSize = `${baseSize}px`;
+    }
+
+    function mapToCapabilities(cfg) {
+      return {
+        recolorables: [
+          {
+            get: () => cfg.background_color || defaultConfig.background_color,
+            set: (v) => { cfg.background_color = v; if (window.elementSdk) window.elementSdk.setConfig({ background_color: v }); }
+          },
+          {
+            get: () => cfg.accent_color || defaultConfig.accent_color,
+            set: (v) => { cfg.accent_color = v; if (window.elementSdk) window.elementSdk.setConfig({ accent_color: v }); }
+          },
+          {
+            get: () => cfg.text_color || defaultConfig.text_color,
+            set: (v) => { cfg.text_color = v; if (window.elementSdk) window.elementSdk.setConfig({ text_color: v }); }
+          },
+          {
+            get: () => cfg.secondary_color || defaultConfig.secondary_color,
+            set: (v) => { cfg.secondary_color = v; if (window.elementSdk) window.elementSdk.setConfig({ secondary_color: v }); }
+          },
+          {
+            get: () => cfg.highlight_color || defaultConfig.highlight_color,
+            set: (v) => { cfg.highlight_color = v; if (window.elementSdk) window.elementSdk.setConfig({ highlight_color: v }); }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => cfg.font_family || defaultConfig.font_family,
+          set: (v) => { cfg.font_family = v; if (window.elementSdk) window.elementSdk.setConfig({ font_family: v }); }
+        },
+        fontSizeable: {
+          get: () => cfg.font_size || defaultConfig.font_size,
+          set: (v) => { cfg.font_size = v; if (window.elementSdk) window.elementSdk.setConfig({ font_size: v }); }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(cfg) {
+      return new Map([
+        ['main_headline', cfg.main_headline || defaultConfig.main_headline],
+        ['sub_headline', cfg.sub_headline || defaultConfig.sub_headline],
+        ['price_fundamental', cfg.price_fundamental || defaultConfig.price_fundamental],
+        ['price_medio', cfg.price_medio || defaultConfig.price_medio],
+        ['price_combo', cfg.price_combo || defaultConfig.price_combo],
+        ['cta_text', cfg.cta_text || defaultConfig.cta_text],
+        ['video1_url', cfg.video1_url || defaultConfig.video1_url],
+        ['video2_url', cfg.video2_url || defaultConfig.video2_url],
+        ['footer_cnpj', cfg.footer_cnpj || defaultConfig.footer_cnpj],
+        ['footer_address', cfg.footer_address || defaultConfig.footer_address]
+      ]);
+    }
+
+    // Initialize
+    async function init() {
+      startCountdown();
+      
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues
+        });
+      } else {
+        await onConfigChange(defaultConfig);
+      }
+    }
+
+    init();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c524b2244247e11',t:'MTc2OTYyMjIyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<div id="video-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
+  <div class="bg-black rounded-xl w-full max-w-3xl aspect-video relative">
+    <button onclick="closeVideo()" class="absolute -top-10 right-0 text-white text-xl">✖</button>
+    <iframe id="video-frame" class="w-full h-full rounded-xl" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+<script>
+function openVideo(url){
+  document.getElementById('video-frame').src = url + "?autoplay=1";
+  const m=document.getElementById('video-modal');
+  m.classList.remove('hidden'); m.classList.add('flex');
+}
+function closeVideo(){
+  document.getElementById('video-frame').src = "";
+  const m=document.getElementById('video-modal');
+  m.classList.add('hidden'); m.classList.remove('flex');
+}
+</script>
+
+</body>
+</html>
